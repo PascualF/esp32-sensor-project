@@ -43,7 +43,7 @@ The system can later send alerts to Firebase or Telegram when vibration threshol
 
 ## Setup
 ### Breabboard Photo
-![breadboard](Doc/breadboard_photo.jpg)
+![breadboard](Docs/breadboard_photo.jpg)
 
 ### Wiring Diagram
 ![diagram](Docs/wiring_diagram.png)
