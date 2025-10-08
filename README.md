@@ -1,5 +1,10 @@
 # ESP32 Sensor Project
 
+![License Badge](https://img.shields.io/badge/license-MIT-green)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/PascualF/esp32-sensor-project/arduino-ci.yml?branch=main)](https://github.com/PascualF/esp32-sensor-project/actions)
+[![Firebase Status](https://img.shields.io/badge/firebase-online-brightgreen.svg)](https://esp32sensorsproject-default-rtdb.europe-west1.firebasedatabase.app/)  
+![Hardware: ESP32](https://img.shields.io/badge/Hardware-ESP32-blue.svg)
+
 This project uses an **ESP32** with a **DHT22** (temperature & humidity) and an **MPU6050** (accelerometer + gyroscope).
 It reads sensor values, logs them, and can send alerts over WiFi.
 
@@ -10,7 +15,6 @@ It demonstrates sensor fusion, environmental data collection, and IoT communicat
 The system can later send alerts to Firebase or Telegram when vibration thresholds are exceeded.
 
 ---
-
 ## Features
 - Real-time sensor readings (temperature, humidity, acceleration)
 - LED indicators for alerts

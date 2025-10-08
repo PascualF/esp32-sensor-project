@@ -1,10 +1,11 @@
 import { initializeApp } from "firebase/app";
 import { getDatabase } from "firebase/database";
+import 'dotenv/config';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCtYP6lSamcR3cKvMORkTVaPNJ-cOwi5Gc",
+  apiKey: process.env.API_KEY,
   authDomain: "YOUR_PROJECT.firebaseapp.com",
-  databaseURL: "https://esp32sensorsproject-default-rtdb.europe-west1.firebasedatabase.app/",
+  databaseURL: process.env.URL_KEY,
   projectId: "YOUR_PROJECT",
   storageBucket: "YOUR_PROJECT.appspot.com",
   messagingSenderId: "SENDER_ID",

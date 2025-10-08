@@ -1,0 +1,32 @@
+# This is a CI pipeline that validates Arduono code for ESP32.
+# It automatically compiles the code on every push and pull request to catch build
+# errors early, befoe they reach production.
+name: Arduino CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Arduino CLI
+        uses: arduino/setup-arduino-cli@v2
+        with:
+          version: latest
+      
+      - name: Install ESP32 board support
+        run:
+          arduino-cli config init
+          arduino-cli config add board_manager.additional_urls https://dl.espressif.com/dl/package_esp32_index.json
+          arduino-cli core update-index
+          arduino-cli core install esp32:esp32
+
+      - name: Compile sketch
+        run: arduino-cli compile --fqbn esp32:esp32:esp32 Firmware/ESP32/main/main.ino
