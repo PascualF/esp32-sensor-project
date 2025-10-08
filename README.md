@@ -47,7 +47,7 @@ The system can later send alerts to Firebase or Telegram when vibration threshol
 
 ## Setup
 ### Breabboard Photo
-![breadboard](Doc/breadboard_photo.jpg)
+![breadboard](Docs/breadboard_photo.jpg)
 
 ### Wiring Diagram
 ![diagram](Docs/wiring_diagram.png)
@@ -58,7 +58,7 @@ The full Bill of Materials is available in [`docs/bom.xlsx`](Docs/BOM.xlsx).
 ---
 
 ## Code
-The Arduino sketch is in [/src/main.ino](src/main.ino).
+The Arduino sketch is in [Firmware/ESP32/main/main.ino](Firmware/ESP32/main/main.ino).
 
 ---
 
