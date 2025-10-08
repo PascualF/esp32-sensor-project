@@ -54,7 +54,7 @@ The full Bill of Materials is available in [`docs/bom.xlsx`](Docs/BOM.xlsx).
 ---
 
 ## Code
-The Arduino sketch is in [/src/main.ino](src/main.ino).
+The Arduino sketch is in [Firmware/ESP32/src/main.ino](Firmware/ESP32/src/main.ino).
 
 ---
 
