@@ -19,14 +19,14 @@ jobs:
       - name: Set up Arduino CLI
         uses: arduino/setup-arduino-cli@v2
         with:
-          version: latest
+          version: '0.35.3'
       
       - name: Install ESP32 board support
-        run:
+        run: |
           arduino-cli config init
           arduino-cli config add board_manager.additional_urls https://dl.espressif.com/dl/package_esp32_index.json
           arduino-cli core update-index
           arduino-cli core install esp32:esp32
 
       - name: Compile sketch
-        run: arduino-cli compile --fqbn esp32:esp32:esp32 Firmware/ESP32/main/main.ino
+        run: arduino-cli compile --fqbn esp32:esp32:esp32 firmware/esp32/src/main.ino

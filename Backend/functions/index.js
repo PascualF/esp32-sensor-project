@@ -32,8 +32,8 @@ const logger = require("firebase-functions/logger"); */
 // });
 
 /* const {onRequest} = require("firebase-functions/v2/https"); */
-const {onValueWritten} = require("firebase-functions/v2/database");
-const {onSchedule} = require("firebase-functions/v2/scheduler");
+const {onValueWritten} = require("firebase-functions/database");
+const {onSchedule} = require("firebase-functions/scheduler");
 const admin = require("firebase-admin");
 const axios = require("axios");
 require("dotenv").config();
