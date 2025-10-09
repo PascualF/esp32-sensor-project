@@ -28,5 +28,12 @@ jobs:
           arduino-cli core update-index
           arduino-cli core install esp32:esp32
 
+          # Install all required libraries
+          arduino-cli lib install "Firebase ESP Client"
+          arduino-cli lib install "WiFi"
+          arduino-cli lib install "ArduinoJson"
+          arduino-cli lib install "Adafruit Unified Sensor"
+          arduino-cli lib install "DHT sensor library"
+
       - name: Compile sketch
         run: arduino-cli compile --fqbn esp32:esp32:esp32 firmware/esp32/main/main.ino
