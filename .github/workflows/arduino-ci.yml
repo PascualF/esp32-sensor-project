@@ -30,7 +30,7 @@ jobs:
           arduino-cli core install esp32:esp32
 
           # Install all required libraries
-          arduino-cli lib install --git-url https://github.com/mobizt/FirebaseClient
+          arduino-cli lib install --git-url https://github.com/mobizt/Firebase-ESP-Client
           arduino-cli lib install "WiFi"
           arduino-cli lib install "ArduinoJson"
           arduino-cli lib install "Adafruit Unified Sensor"

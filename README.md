@@ -56,12 +56,12 @@ The system can later send alerts to Firebase or Telegram when vibration threshol
 ![diagram](Docs/wiring_diagram.png)
 
 ## Bill of Materials (BOM)
-The full Bill of Materials is available in [`docs/bom.xlsx`](Docs/BOM.xlsx).
+The full Bill of Materials is available in [`docs/BOM.xlsx`](docs/BOM.xlsx).
 
 ---
 
 ## Code
-The Arduino sketch is in [Firmware/ESP32/main/main.ino](Firmware/ESP32/main/main.ino).
+The Arduino sketch is in [firmware/esp32/main/main.ino](firmware/esp32/main/main.ino).
 
 ---
 
