@@ -6,12 +6,12 @@
 #include "MPU6050_light.h"
 
 // --- WiFi ---
-const char* WIFI_SSID = WIFI_NAME;
-const char* WIFI_PASSWORD = WIFI_PASSWORD;
+const char* WIFI_SSID = getenv("WIFI_NAME");
+const char* WIFI_PASSWORD = getenv("WIFI_PASSWORD");
 
 // --- Firebase ---
-#define API_KEY FIREBASE_API_KEY
-#define DATABASE_URL FIREBASE_URL_PROJECT
+#define API_KEY getenv("FIREBASE_API_KEY")
+#define DATABASE_URL getenv("FIREBASE_URL_PROJECT")
 
 FirebaseData fbdo;
 FirebaseAuth auth;

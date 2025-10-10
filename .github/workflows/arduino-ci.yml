@@ -37,4 +37,9 @@ jobs:
           arduino-cli lib install "DHT sensor library"
 
       - name: Compile sketch
+        env:
+          WIFI_NAME: ${{ secrets.WIFI_NAME }}
+          WIFI_PASSWORD: ${{ secrets.WIFI_PASSWORD }}
+          FIREBASE_API: ${{ secrets.FIREBASE_API }}
+          FIREBASE_URL_PROJECT: ${{ secrets.FIREBASE_URL_PROJECT }}
         run: arduino-cli compile --fqbn esp32:esp32:esp32 firmware/esp32/main
