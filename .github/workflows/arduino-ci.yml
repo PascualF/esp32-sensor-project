@@ -25,14 +25,13 @@ jobs:
         run: |
           arduino-cli config init
           arduino-cli config add board_manager.additional_urls https://dl.espressif.com/dl/package_esp32_index.json
-          arduino-cli config set library.enable_unsafe_install true
           arduino-cli core update-index
           arduino-cli core install esp32:esp32
-
-          # Install all required libraries
+  
+      - name: Install all required libraries
+        run: |
+          arduino-cli config set library.enable_unsafe_install true
           arduino-cli lib install --git-url https://github.com/mobizt/Firebase-ESP-Client
-          arduino-cli lib install "WiFi"
-          arduino-cli lib install "ArduinoJson"
           arduino-cli lib install "Adafruit Unified Sensor"
           arduino-cli lib install "DHT sensor library"
 
