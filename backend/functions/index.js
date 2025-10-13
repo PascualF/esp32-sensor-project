@@ -36,9 +36,14 @@ const {onValueWritten} = require("firebase-functions/database");
 const {onSchedule} = require("firebase-functions/scheduler");
 const admin = require("firebase-admin");
 const axios = require("axios");
-require("dotenv").config();
+const {defineSecret} = require("firebase-functions/params");
+/* require("dotenv").config({path: ".env.development"}); */
 
 admin.initializeApp();
+
+// Define Secrets
+const TELEGRAM_TOKEN = defineSecret("TELEGRAM_TOKEN");
+const TELEGRAM_CHATID = defineSecret("TELEGRAM_CHATID");
 
 /**
  * Sends a message to a Telegram chat using the Telegram Bot API.
@@ -48,8 +53,9 @@ admin.initializeApp();
  */
 async function sendTelegramMessage(messageToSend) {
   try {
-    const token = process.env.TELEGRAM_TOKEN;
-    const chatId = process.env.TELEGRAM_CHATID;
+    const token = await TELEGRAM_TOKEN.value();
+    const chatId = await TELEGRAM_CHATID.value();
+    console.log(token);
     const url = `https://api.telegram.org/bot${token}/sendMessage`;
 
     await axios.post(url, {
@@ -62,12 +68,17 @@ async function sendTelegramMessage(messageToSend) {
     return true;
   } catch (error) {
     console.error("Telegram error: ", error.message);
+    if (error.response && error.response.data) {
+      console.error(error.response.data);
+    }
     return false;
   }
 }
 
 exports.alertOnRedEvent = onValueWritten({
+  region: "europe-west1",
   ref: "device/device01/vibration_events/{eventId}",
+  secrets: ["TELEGRAM_TOKEN", "TELEGRAM_CHATID"],
 }, async (event) => {
   const eventData = event.data.after.val();
   const level = eventData.level;
@@ -129,6 +140,8 @@ exports.dailySummary = onSchedule(
     {
       schedule: "0 23 * * *", // every day at 23:00
       timeZone: "Europe/Berlin",
+      region: "europe-west1",
+      secrets: ["TELEGRAM_TOKEN", "TELEGRAM_CHATID"],
     },
     async (event) => {
       const ref = admin.database()
@@ -192,6 +205,8 @@ exports.checkHeartbeat = onSchedule(
     {
       schedule: "0 9 * * *",
       timeZone: "Europe/Brussels",
+      region: "europe-west1",
+      secrets: ["TELEGRAM_TOKEN", "TELEGRAM_CHATID"],
     },
     async (event) => {
       const ref = admin.database().ref("device/device01/heartbeat");

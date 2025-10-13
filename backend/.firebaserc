@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "esp32sensorsproject"
-  }
+    "default": "esp32sensorsproject",
+    "dev": "esp32sensorsproject"
+  },
+  "targets": {},
+  "etags": {}
 }
